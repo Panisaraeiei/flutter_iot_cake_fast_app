@@ -1,16 +1,8 @@
-# flutter_iot_cake_fast_app
+## Mobile Application with Flutter&Dart
 
-A new Flutter project.
+## UI Ouly HomeUi, SigninUi, SignupUi
+<img width="250" src="https://github.com/user-attachments/assets/f917b33d-817d-4540-8fea-e453948dfafb" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img width="250" src="https://github.com/user-attachments/assets/8b028a18-67cf-4add-b958-06cda9015fcc" />
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
