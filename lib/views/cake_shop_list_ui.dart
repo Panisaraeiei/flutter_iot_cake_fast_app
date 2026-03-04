@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_iot_cake_fast_app/models/Cake_shop.dart';
+import 'package:flutter_iot_cake_fast_app/models/cake_shop.dart';
+import 'package:flutter_iot_cake_fast_app/views/cake_shop_detail_ui.dart';
 
 class CakeShopListUi extends StatefulWidget {
   const CakeShopListUi({super.key});
@@ -10,17 +11,16 @@ class CakeShopListUi extends StatefulWidget {
 }
 
 class _CakeShopListUiState extends State<CakeShopListUi> {
-  //สร้างตัวแปรกับรูป
   List<String> imgCakeshop = [
-    'assets/images/ck01.png',
-    'assets/images/ck02.png',
-    'assets/images/ck03.png',
-    'assets/images/ck04.png',
-    'assets/images/ck05.png',
-    'assets/images/ck06.png',
-    'assets/images/ck07.png',
+    "assets/images/ck01.png",
+    "assets/images/ck02.png",
+    "assets/images/ck03.png",
+    "assets/images/ck04.png",
+    "assets/images/ck05.png",
+    "assets/images/ck06.png",
+    "assets/images/ck07.png",
   ];
-  //สร้างตัวแปรกับข้อมูลร้าน
+
   List<CakeShop> cakeShops = [
     CakeShop(
       name: 'Yellow Spoon Pastry',
@@ -133,13 +133,8 @@ class _CakeShopListUiState extends State<CakeShopListUi> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 133, 216, 237),
-        title: Text(
-          "Cakekee",
-          style: TextStyle(
-            color: Colors.white,
-          ),
-        ),
+        backgroundColor: const Color.fromARGB(255, 235, 165, 249),
+        title: Text("cakekee", style: TextStyle(color: Colors.white)),
         centerTitle: true,
       ),
       body: Center(
@@ -148,17 +143,15 @@ class _CakeShopListUiState extends State<CakeShopListUi> {
             CarouselSlider.builder(
               itemCount: imgCakeshop.length,
               options: CarouselOptions(
-                height: MediaQuery.of(context).size.height * 0.25,
+                height: MediaQuery.of(context).size.height * 0.3,
                 autoPlay: true,
-                autoPlayInterval: Duration(
-                  seconds: 2,
-                ),
+                autoPlayInterval: Duration(seconds: 3),
               ),
               itemBuilder: (context, index, realIndex) {
                 return Container(
                   margin: const EdgeInsets.all(5.0),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
+                    borderRadius: BorderRadius.circular(5.0),
                     image: DecorationImage(
                       image: AssetImage(imgCakeshop[index]),
                       fit: BoxFit.cover,
@@ -172,27 +165,32 @@ class _CakeShopListUiState extends State<CakeShopListUi> {
                 itemCount: imgCakeshop.length,
                 separatorBuilder: (context, index) {
                   return Divider(
-                    color: const Color.fromARGB(255, 87, 231, 231),
+                    color: const Color.fromARGB(255, 235, 165, 249),
                   );
                 },
                 itemBuilder: (context, index) {
                   return ListTile(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => CakeShopDetailUi(
+                            cakeShopDetail: cakeShops[index],
+                          ),
+                        ),
+                      );
+                    },
                     leading: ClipRRect(
-                      borderRadius: BorderRadius.circular(5),
+                      borderRadius: BorderRadius.circular(5.0),
                       child: Image.asset(
-                        'assets/images/${cakeShops[index].image1}',
+                        'assets/images/${cakeShops[index].image1!}',
                       ),
                     ),
-                    title: Text(
-                      cakeShops[index].name!,
-                    ),
-                    subtitle: Text(
-                      cakeShops[index].phone!,
-                    ),
+                    title: Text(cakeShops[index].name!),
+                    subtitle: Text(cakeShops[index].phone!),
                     trailing: Icon(
                       Icons.arrow_forward_ios,
-                      color: const Color.fromARGB(255, 113, 225, 242),
+                      color: const Color.fromARGB(255, 235, 165, 249),
                     ),
                   );
                 },
